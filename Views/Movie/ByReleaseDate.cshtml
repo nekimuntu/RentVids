@@ -1,0 +1,9 @@
+﻿@using RentVids.Models
+@model RentVids.Models.Movie
+@{
+    ViewBag.Title = "ByReleaseDate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@((Movie)ViewData["movie"]).Name</h2>
+

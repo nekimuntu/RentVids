@@ -1,0 +1,30 @@
+﻿
+@model RentVids.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 style="text-align:center">@Model.Movie.Name</h2>
+<h2> </h2>
+<div class="form-group">
+    <label for="exampleSelect2" class="form-label mt-4"><strong>Customers who rented it</strong></label>
+    <br />
+    @*here is how to add a class to an HTML element*@
+    @{ var className = Model.Customers.Count > 5 ? "popular" : null;}
+    @if (Model.Customers.Count == 0)
+    {
+        <p>No customers rented this movie</p>
+    }
+    else
+    {
+        <select multiple="" class="form-select @className" id="exampleSelect2">
+            @foreach (var customer in Model.Customers)
+            {
+                <option>@customer.Name</option>
+            }
+        </select>
+    }
+
+</div>
